@@ -8,6 +8,8 @@ public class GuessNumberGame {
     private Answer answer;
     private GameStatus status = GameStatus.CONTINUED;
     private int MAX_TRY_TIMES = 6;
+    private static int correctTimes = 0;
+    private static int score = 0;
     private int leftTryTimes = MAX_TRY_TIMES;
     private RandomAnswerGenerator randomAnswerGenerator;
 
@@ -40,5 +42,15 @@ public class GuessNumberGame {
 
     public GameStatus getStatus() {
         return status;
+    }
+
+    public int countScore(String result){
+        if (result.equals("4A0B")){
+            if (correctTimes==0){
+                score=score+3;
+                correctTimes++;
+            }
+        }
+        return score;
     }
 }
