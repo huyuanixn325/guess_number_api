@@ -12,10 +12,10 @@ import java.util.Arrays;
 public class GuessNumberIntegralTest {
 
     @Test
-    public void should_return_3_when_given_1234() {
+    public void should_return_3_when_given_1235() {
         //given
-        String answer1 = "1 2 3 4";
-        Answer answer = new Answer(Arrays.asList("1", "2", "3", "4"));
+        String answer1 = "1 2 3 5";
+        Answer answer = new Answer(Arrays.asList("1", "2", "3", "5"));
         RandomAnswerGenerator randomAnswerGenerator = Mockito.mock(RandomAnswerGenerator.class);
         Mockito.when(randomAnswerGenerator.generateAnswer()).thenReturn(answer);
         GuessNumberGame guessNumberGame = new GuessNumberGame(randomAnswerGenerator);
