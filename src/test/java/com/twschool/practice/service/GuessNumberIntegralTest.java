@@ -116,5 +116,24 @@ public class GuessNumberIntegralTest {
         Assert.assertEquals(20,result);
     }
 
+    @Test
+    public void should_return_25_when_given_1235_1235_1235_1235_1235_1235() {
+        //given
+        String currentAnswer = "1 2 3 5";
 
+        Answer answer = new Answer(Arrays.asList("1", "2", "3", "5"));
+        RandomAnswerGenerator randomAnswerGenerator = Mockito.mock(RandomAnswerGenerator.class);
+        Mockito.when(randomAnswerGenerator.generateAnswer()).thenReturn(answer);
+        GuessNumberGame guessNumberGame = new GuessNumberGame(randomAnswerGenerator);
+        GameService gameService = new GameService(guessNumberGame);
+        //when
+        gameService.integral(currentAnswer);
+        gameService.integral(currentAnswer);
+        gameService.integral(currentAnswer);
+        gameService.integral(currentAnswer);
+        gameService.integral(currentAnswer);
+        int result = gameService.integral(currentAnswer);
+        //then
+        Assert.assertEquals(25,result);
+    }
 }
