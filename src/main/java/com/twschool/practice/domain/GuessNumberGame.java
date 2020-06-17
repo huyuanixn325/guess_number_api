@@ -49,7 +49,17 @@ public class GuessNumberGame {
             if (correctTimes==0){
                 score=score+3;
                 correctTimes++;
+            }else {
+                score=score+3;
+                correctTimes++;
+                if (correctTimes%3==0) score=score+2;
+                if (correctTimes%5==0) score=score+3;
             }
+        }else {
+            if (score>=3)
+                score=score-3;
+            else score=0;
+            correctTimes=0;
         }
         return score;
     }
