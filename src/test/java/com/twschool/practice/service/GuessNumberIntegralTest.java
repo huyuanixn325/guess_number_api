@@ -41,4 +41,21 @@ public class GuessNumberIntegralTest {
         //then
         Assert.assertEquals(6,result);
     }
+
+    @Test
+    public void should_return_0_when_given_1237() {
+        //given
+        String answer1 = "1 2 3 7";
+        Answer answer = new Answer(Arrays.asList("1", "2", "3", "5"));
+        RandomAnswerGenerator randomAnswerGenerator = Mockito.mock(RandomAnswerGenerator.class);
+        Mockito.when(randomAnswerGenerator.generateAnswer()).thenReturn(answer);
+        GuessNumberGame guessNumberGame = new GuessNumberGame(randomAnswerGenerator);
+        GameService gameService = new GameService(guessNumberGame);
+        //when
+        gameService.integral(answer1);
+        gameService.integral(answer1);
+        int result = gameService.integral(answer1);
+        //then
+        Assert.assertEquals(0,result);
+    }
 }
